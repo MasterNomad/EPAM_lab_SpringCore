@@ -1,4 +1,4 @@
-package org.shop;
+package org.shop.initializer;
 
 import org.shop.api.ProductService;
 
@@ -7,18 +7,23 @@ import org.shop.api.SellerService;
 import org.shop.common.Products;
 import org.shop.data.Product;
 import org.shop.data.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * The Proposal Initializer util class.
  */
 public class ProposalInitializer {
     
     /** The product service. */
+    @Autowired
     private ProductService productService;
     
     /** The proposal service. */
+    @Autowired
     private ProposalService proposalService;
     
     /** The seller service. */
+    @Autowired
     private SellerService sellerService;
 
     /**
@@ -32,7 +37,7 @@ public class ProposalInitializer {
         Product kindleFire = productService.getProductsByName(Products.KINDLE_FIRE).get(0);
         Product kindleTouch = productService.getProductsByName(Products.KINDLE_TOUCH).get(0);
         Product galaxyAce = productService.getProductsByName(Products.SAMSUNG_GALAXY_ACE).get(0);
-        
+
         //Samsung
         proposalService.createProposal(samsung.getId(), galaxyAce.getId(), 250.0);
         proposalService.createProposal(samsung.getId(), galaxyTab.getId(), 500.0);

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.collections.Predicate;
 import org.shop.data.Order;
 import org.shop.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * The Class OrderMapRepository.

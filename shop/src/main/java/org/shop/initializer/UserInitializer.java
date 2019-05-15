@@ -1,4 +1,4 @@
-package org.shop;
+package org.shop.initializer;
 
 import org.shop.api.UserService;
 import org.shop.data.User;

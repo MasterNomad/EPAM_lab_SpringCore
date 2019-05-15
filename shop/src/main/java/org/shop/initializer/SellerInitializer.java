@@ -1,4 +1,4 @@
-package org.shop;
+package org.shop.initializer;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.shop.api.SellerService;
 import org.shop.data.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * The Seller Initializer util class.
@@ -14,16 +16,18 @@ import org.shop.data.Seller;
 public class SellerInitializer {
 
     /** The seller service. */
+    @Autowired
     private SellerService sellerService;
     
     /** The seller names. */
+    @Value("#{${parameter.sellers}}")
     private Map<Long, String> sellerNames = Collections.emptyMap();
 
     /**
      * Inits the sellers.
      */
     public void initSellers() {
-        List<Seller> sellers = new LinkedList<Seller>();
+        List<Seller> sellers = new LinkedList<>();
         
         for (Map.Entry<Long, String> entry : sellerNames.entrySet()) {
             Seller seller = new Seller();
