@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
+import org.shop.annotation.InjectRandomInt;
 import org.shop.data.Entity;
 
 /**

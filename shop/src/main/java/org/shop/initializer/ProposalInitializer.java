@@ -1,5 +1,6 @@
 package org.shop.initializer;
 
+import org.shop.annotation.InjectRandomInt;
 import org.shop.api.ProductService;
 
 import org.shop.api.ProposalService;
@@ -13,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  * The Proposal Initializer util class.
  */
 public class ProposalInitializer {
+
+    @InjectRandomInt(minValue = 200, maxValue = 500)
+    private int galaxyAcePrice;
     
     /** The product service. */
     @Autowired
@@ -39,7 +43,7 @@ public class ProposalInitializer {
         Product galaxyAce = productService.getProductsByName(Products.SAMSUNG_GALAXY_ACE).get(0);
 
         //Samsung
-        proposalService.createProposal(samsung.getId(), galaxyAce.getId(), 250.0);
+        proposalService.createProposal(samsung.getId(), galaxyAce.getId(), (double) galaxyAcePrice);
         proposalService.createProposal(samsung.getId(), galaxyTab.getId(), 500.0);
         
         //Amazon

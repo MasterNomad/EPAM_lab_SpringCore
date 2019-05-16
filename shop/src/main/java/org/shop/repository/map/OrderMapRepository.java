@@ -17,7 +17,7 @@ public class OrderMapRepository extends AbstractMapRepository<Order> implements 
     public void setSequence(long sequence) {
         super.sequence = sequence;
     }
-    
+
     /* (non-Javadoc)
      * @see org.shop.repository.OrderRepository#getOrderById(java.lang.Long)
      */

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataConfig {
+public class InitializerConfig {
 
     @Bean(initMethod = "initData")
     public DataInitializer dataInitializer() {
@@ -28,6 +28,14 @@ public class DataConfig {
     @Bean
     public ProductInitializer productInitializer(ProductService productService) {
         return new ProductInitializer(productService);
+    }
+
+    @Bean
+    public Map<Long, String> sellersName() {
+        Map<Long, String> map = new HashMap<>();
+        map.put(1L, "seller 1");
+        map.put(2L, "seller 2");
+        return map;
     }
 
     @Bean

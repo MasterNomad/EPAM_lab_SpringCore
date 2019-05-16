@@ -10,7 +10,8 @@ import org.shop.data.Order;
  * @author Dzmitry_Naskou
  */
 public interface OrderRepository {
-    
+
+
     /**
      * Gets the order by id.
      *
