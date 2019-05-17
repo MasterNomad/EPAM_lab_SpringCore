@@ -10,6 +10,8 @@ public class DataInitializer {
     /** The seller initializer. */
     @Autowired
     private SellerInitializer sellerInitializer;
+
+    private SellerInitializer seller;
     
     /** The product initializer. */
     @Autowired

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public class OrderMapRepository extends AbstractMapRepository<Order> implements OrderRepository {
 
+    @Value("${parameter.initialSequence}")
     public void setSequence(long sequence) {
         super.sequence = sequence;
     }

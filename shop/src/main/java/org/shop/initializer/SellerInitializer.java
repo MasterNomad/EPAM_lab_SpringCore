@@ -3,6 +3,7 @@ package org.shop.initializer;
 import org.shop.api.SellerService;
 import org.shop.data.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -24,7 +25,8 @@ public class SellerInitializer {
     /**
      * The seller names.
      */
-    @Resource(name = "sellersName")
+//  @Resource(name = "sellersName")
+    @Autowired
     private Map<Long, String> sellerNames = Collections.emptyMap();
 
     /**
@@ -40,7 +42,14 @@ public class SellerInitializer {
 
             sellers.add(seller);
         }
-
         sellerService.importSellers(sellers);
+    }
+
+    @Override
+    public String toString() {
+        return "SellerInitializer{" +
+                "sellerService=" + sellerService +
+                ", sellerNames=" + sellerNames +
+                '}';
     }
 }

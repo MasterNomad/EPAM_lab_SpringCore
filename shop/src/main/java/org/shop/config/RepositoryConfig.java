@@ -1,6 +1,5 @@
 package org.shop.config;
 
-import org.shop.annotation.InjectRandomInt;
 import org.shop.repository.*;
 import org.shop.repository.factory.UserRepositoryFactory;
 import org.shop.repository.map.*;
@@ -18,8 +17,7 @@ public class RepositoryConfig {
 
     @Bean
     public OrderRepository orderRepository() {
-        OrderMapRepository orderRepository = new OrderMapRepository();
-                return orderRepository;
+        return new OrderMapRepository();
     }
 
     @Bean

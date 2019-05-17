@@ -4,7 +4,9 @@ import org.shop.api.ProductService;
 import org.shop.api.UserService;
 import org.shop.initializer.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +14,17 @@ public class InitializerConfig {
 
     @Bean(initMethod = "initData")
     public DataInitializer dataInitializer() {
-        return new DataInitializer();
+        DataInitializer dataInitializer = new DataInitializer();
+
+        try {
+            Field field = DataInitializer.class.getDeclaredField("seller");
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, dataInitializer, sellerInitializer());
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        return dataInitializer;
     }
 
     @Bean
